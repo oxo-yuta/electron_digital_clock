@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>Sample</title>
+
+	<script type="text/javascript">
+		window.jQuery = window.$ = require('./js/jquery-3.3.1.min.js');
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="./css/clock.css">
+
+
+</head>
+
+<body>
+	<div class="clock_wrap">
+  		<p class="clock">
+  			<span class="hour"></span>:<span class="minute"></span>:<span class="second"></span>
+  		</p>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(function(){
+    		setInterval(function(){
+        		updateTime();
+    		},1000);
+		});
+	});
+
+	function updateTime(){
+		var time = new Date();
+    	var hour = $(".hour");
+    	var minute = $(".minute");
+    	var second = $(".second");
+
+	    var H = ('00' + time.getHours()).slice(-2);
+	    var M = ('00' + time.getMinutes()).slice(-2);
+	    var S = ('00' + time.getSeconds()).slice(-2);
+
+
+    	hour.html(H);
+    	minute.html(M);
+    	second.html(S);
+	}
+
+
+</script>
+</html>
